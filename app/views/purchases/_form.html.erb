@@ -1,0 +1,48 @@
+<%= form_with model: @purchase, local: true,  validate: true do |form| %>
+  <% if purchase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
+
+      <ul>
+      <% purchase.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount, id: :purchase_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :purchase_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tracking_id %>
+    <%= form.number_field :tracking_id, id: :purchase_tracking_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+<%= form_for @purchase, validate: true  do |form| %>
+
+  <%= form.label :amount %>
+  <%= form.text_field :amount, id: :purchase_amount %>
+
+  <%= form.label :name %>
+  <%= form.text_field :name, id: :purchase_name %>
+
+  <%= form.label :tracking_id %>
+  <%= form.number_field :tracking_id, id: :purchase_tracking_id %>
+
+  <%= form.submit %>
+
+<% end %>

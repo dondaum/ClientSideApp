@@ -1,0 +1,72 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Purchases</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Name</th>
+      <th>Tracking</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @purchases.each do |purchase| %>
+      <tr>
+        <td><%= purchase.amount %></td>
+        <td><%= purchase.name %></td>
+        <td><%= purchase.tracking_id %></td>
+        <td><%= link_to 'Show', purchase %></td>
+        <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
+        <td><%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Purchase', new_purchase_path %>
+<%= link_to 'New Purchase (AJAX Modal)', new_purchase_path, remote: true, class: 'btn btn-info' %>
+
+<div class "row">
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#form_modal">
+    Create a new purchase
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="form_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <%= form_for @purchase, validate: true do |form| %>
+            <%#= form.error_notification %>
+
+            <%= form.label :amount %>
+            <%= form.text_field :amount, id: :purchase_amount %>
+
+            <%= form.label :name %>
+            <%= form.text_field :name, id: :purchase_name %>
+
+            <%= form.label :tracking_id %>
+            <%= form.number_field :tracking_id, id: :purchase_tracking_id %>
+
+            <%= form.submit %>
+
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

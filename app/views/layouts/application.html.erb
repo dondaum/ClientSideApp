@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ClientSideApp</title>
     <%= csrf_meta_tags %>
 
@@ -9,6 +10,13 @@
   </head>
 
   <body>
-    <%= yield %>
+     <header>
+       <%= render 'layouts/header' %>
+     </header>
+     <div class="container">
+        <%= render 'layouts/messages' %>
+        <%= yield %>
+    </div>
+    <div id='remotecontainer'></div>
   </body>
 </html>
