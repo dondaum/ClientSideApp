@@ -32,6 +32,7 @@ class PurchasesController < ApplicationController
         format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }
         #format.json { render :show, status: :created, location: @purchase }
         format.json { render json: @purchase, status: :created, location: @purchase }
+        format.js   { redirect_to root_path, notice: 'Purchase was created with ajax'}
       else
         format.html { render :new }
         #format.json { render json: @purchase.errors, status: :unprocessable_entity }
