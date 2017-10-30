@@ -1,5 +1,7 @@
 $('#remotecontainer').html('<%= j render "form_modal" %>');
+
 $('#form_modal').on('shown.bs.modal', function() {
-  $('form[data-validate]').enableClientSideValidations();
+
+  $(document).find("form#new_purchase").enableClientSideValidations();
 
 }).modal('show');

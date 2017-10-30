@@ -14,23 +14,4 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require turbolinks
-//= require rails.validations
 //= require_tree .
-
-
-$(document).on('turbolinks:load', function() {
-
-  $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').focus()
-  })
-}
-
-window.ClientSideValidations.callbacks.element.fail = function(element, message, callback) {
-  $('.submit').prop("disabled",true);
-  callback();
-};
-
-window.ClientSideValidations.callbacks.element.pass = function(element, callback) {
-  $('.submit').prop("disabled",false);
-  callback();
-};

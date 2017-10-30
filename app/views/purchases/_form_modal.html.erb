@@ -9,6 +9,7 @@
       <div class="modal-body">
           <%= render "shared/error_messages", :target => @purchase %>
 
+          <div class ="form-inputs">
           <%= form.label :amount %>
           <%= form.text_field :amount, class: "form-control purchase_amount" %>
 
@@ -17,10 +18,11 @@
 
           <%= form.label :tracking_id %>
           <%= form.number_field :tracking_id, class: "form-control purchase_tracking_id" %>
+          </div>
 
       </div>
       <div class="modal-footer">
-          <%= form.submit "Speichern", class: "btn btn-primary" %>
+          <%= form.button "Speichern", class: "btn btn-primary", data: { disable_with: "Loading..." } %>
           <% end %>
       </div>
     </div>

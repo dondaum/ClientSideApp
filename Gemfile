@@ -22,6 +22,8 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 # install client side validation
 gem 'client_side_validations'
+# install client side validation
+gem 'client_side_validations-simple_form'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

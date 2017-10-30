@@ -1,41 +1,40 @@
 <h1>Purchases</h1>
-
-<table class ="table" id ="container_purchases">
-  <thead>
-    <tr>
-      <th>Amount</th>
-      <th>Name</th>
-      <th>Tracking</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @purchases.each do |purchase| %>
-      <tr id = "purchase_<%= purchase.id %>">
-        <td><%= purchase.amount %></td>
-        <td><%= purchase.name %></td>
-        <td><%= purchase.tracking_id %></td>
-        <td><%= link_to 'Show', purchase %></td>
-        <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
-        <td><%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<div class="table-responsive">
+  <table class ="table" id ="container_purchases">
+    <thead>
+      <tr>
+        <th>Amount</th>
+        <th>Name</th>
+        <th>Tracking</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <% @purchases.each do |purchase| %>
+        <tr id = "purchase_<%= purchase.id %>">
+          <td><%= purchase.amount %></td>
+          <td><%= purchase.name %></td>
+          <td><%= purchase.tracking_id %></td>
+          <td><%= link_to 'Show', purchase %></td>
+          <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
+          <td><%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <br>
-<div class= "container">
-  <%= link_to 'New Purchase', new_purchase_path %>
-  <%= link_to 'New Purchase (AJAX Modal)', new_purchase_path, remote: true, class: 'btn btn-info' %>
+<div class="btn-group-vertical">
+    <p><%= link_to 'New Purchase', new_purchase_path, class: "btn btn-primary" %></p>
+    <p><%= link_to 'New Purchase (AJAX Modal)', new_purchase_path, remote: true, class: 'btn btn-primary' %></p>
+    <p><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#form_modal1">
+      New Purchase with Bootstrap
+    </button></p>
+    <p><%= link_to 'Number Alert', purchase_path(2), remote: true, class: "btn btn-info" %></p>
 </div>
 
 <div class "row">
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#form_modal1">
-    New action with Bootstrap
-  </button>
-
   <!-- Modal -->
   <div class="modal fade" id="form_modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -69,4 +68,3 @@
     </div>
   </div>
 </div>
-<%= link_to 'Number Alert', purchase_path(2), remote: true, class: "btn btn-info" %>
