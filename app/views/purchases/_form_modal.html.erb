@@ -1,5 +1,5 @@
 <div class="modal fade" id="form_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <%= form_for @purchase, validate: true do |form| %>
+  <%= form_for @purchase, validate: true, remote: true do |form| %>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -10,21 +10,18 @@
           <%= render "shared/error_messages", :target => @purchase %>
 
           <%= form.label :amount %>
-          <%= form.text_field :amount, id: :purchase_amount %>
+          <%= form.text_field :amount, class: "form-control purchase_amount" %>
 
           <%= form.label :name %>
-          <%= form.text_field :name, id: :purchase_name %>
+          <%= form.text_field :name, class: "form-control purchase_name" %>
 
           <%= form.label :tracking_id %>
-          <%= form.number_field :tracking_id, id: :purchase_tracking_id %>
+          <%= form.number_field :tracking_id, class: "form-control purchase_tracking_id" %>
 
-          <%= form.submit %>
-
-        <% end %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+          <%= form.submit "Speichern", class: "btn btn-primary" %>
+          <% end %>
       </div>
     </div>
   </div>

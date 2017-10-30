@@ -37,6 +37,7 @@ class PurchasesController < ApplicationController
         format.html { render :new }
         #format.json { render json: @purchase.errors, status: :unprocessable_entity }
         format.json { render json: @client.errors.full_messages, status: :unprocessable_entity }
+        format.js
       end
     end
   end

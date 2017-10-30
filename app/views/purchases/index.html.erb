@@ -1,6 +1,6 @@
 <h1>Purchases</h1>
 
-<table>
+<table class ="table" id ="container_purchases">
   <thead>
     <tr>
       <th>Amount</th>
@@ -12,7 +12,7 @@
 
   <tbody>
     <% @purchases.each do |purchase| %>
-      <tr>
+      <tr id = "purchase_<%= purchase.id %>">
         <td><%= purchase.amount %></td>
         <td><%= purchase.name %></td>
         <td><%= purchase.tracking_id %></td>
@@ -32,12 +32,12 @@
 
 <div class "row">
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#form_modal">
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#form_modal1">
     New action with Bootstrap
   </button>
 
   <!-- Modal -->
-  <div class="modal fade" id="form_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade" id="form_modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">

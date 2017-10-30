@@ -1,0 +1,7 @@
+$("#form_modal").modal('hide');
+$(".purchase_amount").val("");
+$(".purchase_name").val("");
+$(".purchase_tracking_id").val("");
+
+$("#container_purchases").prepand("<%= j render @purchase %>");
+$("#purchase_<%= @purchase.id %>").hide().fadeIn(3000);
